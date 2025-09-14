@@ -28,7 +28,7 @@ Full-stack e-shop εφαρμογή για το Coding Factory.
 - Swagger (API docs)
 - Jest + Supertest (testing)
 
----
+------
 
 ##  Installation
  
