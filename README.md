@@ -64,7 +64,7 @@ User:
 Login: natalia_v
 Password: 123!@#
 
-.env:
+.env(backend):
 -------------------------------------------------------------------
 MONGODB_URI = mongodb+srv://eShopUser:JMpEx6i8Gr4thWRe@tzecluster.irlx7cj.mongodb.net/FE-Tech-eShop?retryWrites=true&w=majority&appName=TzeCluster
 JWT_SECRET = f544ffdea33b3e5db9bebdcc928199385f7f04dd0fbc13a91728f27bc7cf3548251d2189e1dfb476d72abcf6bdafb71a4d48e6794e0c3310d37831b52deaf22b
