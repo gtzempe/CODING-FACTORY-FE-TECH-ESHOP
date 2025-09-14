@@ -32,8 +32,9 @@ Full-stack e-shop εφαρμογή για το Coding Factory.
 
 ##  Installation
  
-##  1.
+###  1.
 Clone:
+```bash
 
 bash
 git clone https://github.com/gtzempe/CODING-FACTORY-FE-TECH-ESHOP.git
@@ -141,7 +142,7 @@ Testing:
 cd backend
 npm test
 
-
+---
 
 
 
