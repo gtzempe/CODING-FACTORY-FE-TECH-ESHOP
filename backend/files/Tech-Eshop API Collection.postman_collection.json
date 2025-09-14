@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "688d1f42-29bb-4b43-beb4-ba5124775315",
+		"name": "Tech-Eshop API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44241816"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "POST /api/auth/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"68a0c0c65a46d97353c5da1a\",\n    \"username\": \"admin\",\n    \"password\": \"123!@#\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/auth/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "GET /api/users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwYzBjNjVhNDZkOTczNTNjNWRhMWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJndHplbXBlQGdtYWlsLmNvbSIsInJvbGVzIjpbIkVESVRPUiIsIlJFQURFUiIsIkFETUlOIl0sImlhdCI6MTc1NjMwNzg4OSwiZXhwIjoxNzU2MzExNDg5fQ.cj0608OaxpDM6h5yeKZWyqegYdVS9LAHkLrRgmteEvU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/users/:username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwYzBjNjVhNDZkOTczNTNjNWRhMWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJndHplbXBlQGdtYWlsLmNvbSIsInJvbGVzIjpbIkVESVRPUiIsIlJFQURFUiIsIkFETUlOIl0sImlhdCI6MTc1NjMwNzg4OSwiZXhwIjoxNzU2MzExNDg5fQ.cj0608OaxpDM6h5yeKZWyqegYdVS9LAHkLrRgmteEvU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"George\",\n    \"password\": \"12345\",\n    \"name\": \"George\",\n    \"surname\": \"Tzempe\",\n    \"email\": \"gtzempe@mail.gr\",\n    \"address\": {\n      \"area\": \"area51\",\n      \"road\": \"road51\"\n    },\n    \"phone\": {\n      \"type\": \"mobile\",\n      \"number\": \"6900000000\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/users/:username",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwYzBjNjVhNDZkOTczNTNjNWRhMWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJndHplbXBlQGdtYWlsLmNvbSIsInJvbGVzIjpbIkVESVRPUiIsIlJFQURFUiIsIkFETUlOIl0sImlhdCI6MTc1NjMwNzg4OSwiZXhwIjoxNzU2MzExNDg5fQ.cj0608OaxpDM6h5yeKZWyqegYdVS9LAHkLrRgmteEvU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"george\",\n  \"surname\": \"Tzempe\",\n  \"email\": \"gtzempe@example.com\",\n  \"address\": {\n    \"area\": \"New Area\",\n    \"road\": \"New Road\"\n  },\n  \"phone\": [\n    { \"type\": \"mobile\", \"number\": \"6900000000\" },\n    { \"type\": \"home\", \"number\": \"2100000000\" }\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/:username",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /api/users/:username",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwYzBjNjVhNDZkOTczNTNjNWRhMWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJndHplbXBlQGdtYWlsLmNvbSIsInJvbGVzIjpbIkVESVRPUiIsIlJFQURFUiIsIkFETUlOIl0sImlhdCI6MTc1NjMwNzg4OSwiZXhwIjoxNzU2MzExNDg5fQ.cj0608OaxpDM6h5yeKZWyqegYdVS9LAHkLrRgmteEvU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/:username",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GET /api/products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/products/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwYzBjNjVhNDZkOTczNTNjNWRhMWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJndHplbXBlQGdtYWlsLmNvbSIsInJvbGVzIjpbIkVESVRPUiIsIlJFQURFUiIsIkFETUlOIl0sImlhdCI6MTc1NjMxMzMwOSwiZXhwIjoxNzU2MzE2OTA5fQ.KIVZKuixjKYrsr51hZb4C145joZII4MSWcn1peKVLy8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product\": \"Samsung Galaxy S25 Ultra\",\n  \"description\": \"High-end smartphone with 200MP camera and Snapdragon Gen 3 processor\",\n  \"category\": \"Smartphones\",\n  \"price\": 1399.99,\n  \"stock\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/products/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwYzBjNjVhNDZkOTczNTNjNWRhMWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJndHplbXBlQGdtYWlsLmNvbSIsInJvbGVzIjpbIkVESVRPUiIsIlJFQURFUiIsIkFETUlOIl0sImlhdCI6MTc1NjMxMzMwOSwiZXhwIjoxNzU2MzE2OTA5fQ.KIVZKuixjKYrsr51hZb4C145joZII4MSWcn1peKVLy8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product\": \"Samsung Galaxy S25 Ultra\",\n  \"description\": \"High-end smartphone with 200MP camera and Snapdragon Gen 3 processor\",\n  \"category\": \"Smartphones\",\n  \"price\": 1399.99,\n  \"stock\": 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /api/products/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwYzBjNjVhNDZkOTczNTNjNWRhMWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJndHplbXBlQGdtYWlsLmNvbSIsInJvbGVzIjpbIkVESVRPUiIsIlJFQURFUiIsIkFETUlOIl0sImlhdCI6MTc1NjMxMzMwOSwiZXhwIjoxNzU2MzE2OTA5fQ.KIVZKuixjKYrsr51hZb4C145joZII4MSWcn1peKVLy8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/products/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "GET /api/orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwYzBjNjVhNDZkOTczNTNjNWRhMWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJndHplbXBlQGdtYWlsLmNvbSIsInJvbGVzIjpbIkVESVRPUiIsIlJFQURFUiIsIkFETUlOIl0sImlhdCI6MTc1NjMxMzMwOSwiZXhwIjoxNzU2MzE2OTA5fQ.KIVZKuixjKYrsr51hZb4C145joZII4MSWcn1peKVLy8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/orders/:id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGEwYzBjNjVhNDZkOTczNTNjNWRhMWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJndHplbXBlQGdtYWlsLmNvbSIsInJvbGVzIjpbIkVESVRPUiIsIlJFQURFUiIsIkFETUlOIl0sImlhdCI6MTc1NjMxMzMwOSwiZXhwIjoxNzU2MzE2OTA5fQ.KIVZKuixjKYrsr51hZb4C145joZII4MSWcn1peKVLy8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/orders/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/orders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /api/orders/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/orders/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /api/orders/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/orders/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
