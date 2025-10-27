@@ -224,12 +224,32 @@ backend/files/CF7_Tech-eShop_Postman_Collection.json
 
 ## Screenhots
 
+### Home Page
+![Home Page](./backend/files/screenshots/Homepage.png)
 
+### Products Page  
+![Smartphones](./backend/files/screenshots/Smartphones-filter.png)
 
+### Cart Page
+![Cart](./backend/files/screenshots/Cart.png)
 
+### Login Page
+![Login Page](./backend/files/screenshots/Login-Page.png)
 
+### Register Page
+![Register](./backend/files/screenshots/Register-page.png)
 
+### Signed in menu
+![Signed in menu](./backend/files/screenshots/signed-in.png)
 
+### Update informations before order
+![Update customer informations before order](./backend/files/screenshots/Update-before-complete-order.png)
+
+### Order Summary
+![Order Summary](./backend/files/screenshots/Order-summary-before-completion.png)
+
+### Thanks Page
+![Thanks Page](./backend/files/screenshots/thanks-page.png)
 
 
 
