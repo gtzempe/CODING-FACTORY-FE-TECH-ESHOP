@@ -14,11 +14,12 @@
   "author": "",
   "type": "commonjs",
   "main": "app.js",
+
   "scripts": {
-    "start": "node --env-file=.env server.js",
-    "dev": "node --env-file=.env --watch server.js",
-    "test": "jest"
-  },
+  "start": "node server.js",
+  "dev": "node --watch server.js",
+  "test": "jest"
+},
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
@@ -44,3 +45,5 @@
     ]
   }
 }
+
+
