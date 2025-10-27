@@ -230,25 +230,25 @@ backend/files/CF7_Tech-eShop_Postman_Collection.json
 ### Products Page  
 ![Smartphones](./backend/files/screenshots/Smartphones-filter.png)
 
-### Admin Dashboard
+### Cart Page
 ![Cart](./backend/files/screenshots/Cart.png)
 
-### Admin Dashboard
+### Login Page
 ![Login Page](./backend/files/screenshots/Login-Page.png)
 
-### Admin Dashboard
+### Register Page
 ![Register](./backend/files/screenshots/Register-page.png)
 
-### Admin Dashboard
+### Signed in menu
 ![Signed in menu](./backend/files/screenshots/signed-in.png)
 
-### Admin Dashboard
+### Update informations before order
 ![Update customer informations before order](./backend/files/screenshots/Update-before-complete-order.png)
 
-### Admin Dashboard
+### Order Summary
 ![Order Summary](./backend/files/screenshots/Order-summary-before-completion.png)
 
-### Admin Dashboard
+### Thanks Page
 ![Thanks Page](./backend/files/screenshots/thanks-page.png)
 
 
