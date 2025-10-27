@@ -224,13 +224,32 @@ backend/files/CF7_Tech-eShop_Postman_Collection.json
 
 ## Screenhots
 
-/backend/files/screenshots/Homepage.png
-https://github.com/gtzempe/CODING-FACTORY-FE-TECH-ESHOP/blob/main/backend/files/screenshots/Homepage.png
-'/Users/georgetzempe/Desktop/Education/Projects!/CF7 final exam eshop/backend/files/screenshots/Homepage.png'
+### Home Page
+![Home Page](./backend/files/screenshots/Homepage.png)
 
+### Products Page  
+![Smartphones](./backend/files/screenshots/Smartphones-filter.png)
 
+### Admin Dashboard
+![Cart](./backend/files/screenshots/Cart.png)
 
+### Admin Dashboard
+![Login Page](./backend/files/screenshots/Login-Page.png)
 
+### Admin Dashboard
+![Register](./backend/files/screenshots/Register-page.png)
+
+### Admin Dashboard
+![Signed in menu](./backend/files/screenshots/signed-in.png)
+
+### Admin Dashboard
+![Update customer informations before order](./backend/files/screenshots/Update-before-complete-order.png)
+
+### Admin Dashboard
+![Order Summary](./backend/files/screenshots/Order-summary-before-completion.png)
+
+### Admin Dashboard
+![Thanks Page](./backend/files/screenshots/thanks-page.png)
 
 
 
