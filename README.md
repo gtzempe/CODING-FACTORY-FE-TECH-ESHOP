@@ -224,8 +224,9 @@ backend/files/CF7_Tech-eShop_Postman_Collection.json
 
 ## Screenhots
 
-
-
+/backend/files/screenshots/Homepage.png
+https://github.com/gtzempe/CODING-FACTORY-FE-TECH-ESHOP/blob/main/backend/files/screenshots/Homepage.png
+'/Users/georgetzempe/Desktop/Education/Projects!/CF7 final exam eshop/backend/files/screenshots/Homepage.png'
 
 
 
