@@ -42,6 +42,21 @@ npm install
 npm run dev
 ```
 
+## Environment Setup
+
+Backend:
+
+Create backend/.env file:
+```env
+MONGODB_URI=your_mongodb_connection_string_here
+JWT_SECRET=your_jwt_secret_key_here
+```
+Frontend:
+
+Create frontend/.env file:
+```env
+VITE_API_URL=http://localhost:3000/api
+```
 
 ## Access Points:
 
@@ -57,7 +72,7 @@ API Documentation: http://localhost:3000/api-docs
 	Role	Username	Password	Access
 	
 1.	Admin:	admin	    123!@#	    Full system access
-2.	User:	jason77	    123!@#	    Customer features
+2.	User:	irina_c	    123!@#	    Customer features
 3.	User:	natalia_v	123!@#	    Customer features
 ```
 
