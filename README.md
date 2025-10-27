@@ -7,142 +7,224 @@ Project για το Coding Factory – Athens University of Economics & Business
 
 # Tech-eShop
 
-Full-stack e-shop εφαρμογή για το Coding Factory.  
-Ο χρήστης μπορεί να κάνει εγγραφή, login, να βλέπει προϊόντα, να τα προσθέτει στο καλάθι και να ολοκληρώνει παραγγελία.
+Full-stack e-commerce application developed for Coding Factory. A complete online shopping platform with user authentication, product management, and order processing.
 
----
+## 📋 Project Overview
 
-## Tech Stack
+Tech-eShop is a modern e-commerce solution that allows users to register, browse products, manage shopping carts, and complete orders. The application features role-based access control and a comprehensive admin panel.
 
-**Frontend**
-- React + Vite + TypeScript
-- TailwindCSS + ShadCN UI
-- JWT Authentication (cookies)
-- Zod (form validation)
-- Context API (Cart, Auth)
 
-**Backend**
-- Node.js + Express + TypeScript
-- MongoDB + Mongoose
-- JWT (login / register / role-based auth)
-- Swagger (API docs)
-- Jest + Supertest (testing)
+## Quick Start
 
-------
+### Prerequisites
+- Node.js
+- MongoDB connection
 
-##  Installation
- 
-###  1.
-Clone:
+
+### Installation & Running
+
+1. **Clone the repository**
 ```bash
-
-bash
 git clone https://github.com/gtzempe/CODING-FACTORY-FE-TECH-ESHOP.git
-
-##  2. 
+cd CODING-FACTORY-FE-TECH-ESHOP
+```
+2. Setup Backend
+```bash
 cd backend
 npm install
 npm run dev
+```
 
-##  3. 
+3. Setup Frontend (in a new terminal)
+```bash
 cd frontend
 npm install
 npm run dev
-
-## 4.
-Demo Accounts
-
-Admin:
-Login: admin
-Password: 123!@#
-
-User:
-Login: jason77
-Password: 123!@#
-
-User:
-Login: natalia_v
-Password: 123!@#
-
-.env(backend):
--------------------------------------------------------------------
-MONGODB_URI = mongodb+srv://eShopUser:JMpEx6i8Gr4thWRe@tzecluster.irlx7cj.mongodb.net/FE-Tech-eShop?retryWrites=true&w=majority&appName=TzeCluster
-JWT_SECRET = f544ffdea33b3e5db9bebdcc928199385f7f04dd0fbc13a91728f27bc7cf3548251d2189e1dfb476d72abcf6bdafb71a4d48e6794e0c3310d37831b52deaf22b
-----------------------------------------------------------------------
-
-Comments:
-## Postman Collection
-
-Για δοκιμή των API endpoints: 
-
-Στον φάκελο files του Backend θα βρειτε ολα τα δεδομενα της βάσης δεδομένων καθως και το αρχείο Postman που αφορουν τις κλησεις!
+```
 
 
-Features
-	•	Εγγραφή & login με JWT
-	•	Ρόλοι χρηστών (ADMIN, EDITOR, READER)
-	•	CRUD για Users, Products, Orders
-	•	Καλάθι αγορών με Context API
-	•	Ολοκλήρωση παραγγελίας με αποθήκευση στη βάση
-	•	Swagger UI για API documentation
-	•	Testing με Jest + Supertest
+## Access Points:
 
-Δομη:
+Frontend Application: http://localhost:5173
+
+Backend API: http://localhost:3000
+
+API Documentation: http://localhost:3000/api-docs
+
+
+## Demo Accounts
+```
+	Role	Username	Password	Access
+	
+1.	Admin:	admin	    123!@#	    Full system access
+2.	User:	jason77	    123!@#	    Customer features
+3.	User:	natalia_v	123!@#	    Customer features
+```
+
+
+## What to Test
+
+
+### As Customer 
+
+* User login & authentication
+
+* Browse products & search
+
+* Add/remove items from cart
+
+* Complete checkout process
+
+* View order history
+
+### As Admin 
+
+- Admin dashboard access
+
++ User management
+
++ Product CRUD operations
+
++ Order management system
+
++ Inventory control
+
+
+## Technology Stack
+
+### Frontend:
+
+* React 18 with TypeScript
+
+* Vite - Build tool
+
+* TailwindCSS - Styling
+
+* ShadCN/UI - Components
+
+* Context API - State management
+
+* React Router - Navigation
+
+### Backend:
+
+* Node.js with Express & TypeScript
+
+* MongoDB with Mongoose
+
+* JWT Authentication
+
+* Swagger - API documentation
+
+* Jest - Testing framework
+
+
+## Project Structure
+
+```
 CF7 FINAL EXAM ESHOP/
-│── backend/                # Node.js + Express API
-│   │── controllers/        # Controllers (handle requests & responses)
-│   │── coverage/           # Jest coverage reports
-│   │── dao/                # Data Access Objects
-│   │── dto/                # Data Transfer Objects
-│   │── files/              # Extra files (π.χ. seed data)
-│   │── logs/               # Winston logs
-│   │── middlewares/        # Express middlewares (auth, error handling)
-│   │── models/             # Mongoose models (User, Product, Order)
-│   │── node_modules/       # Backend dependencies
-│   │── routes/             # Express routes (auth, users, products, orders)
-│   │── services/           # Business logic
-│   │── tests/              # Jest + Supertest tests
-│   │── utils/              # Logger, Swagger config κ.ά.
-│   │── .env                # Περιβάλλον (Mongo URI, JWT secret)
-│   │── .gitignore
-│   │── app.js              # Express app setup
-│   │── package-lock.json
-│   │── package.json
-│   │── README.md           # Backend docs (optional)
-│   │── server.js           # Entry point του backend
+backend/
+├── controllers/       # Business logic handlers
+├── dao/              # Data Access Objects
+├── dto/              # Data Transfer Objects
+├── files/            # Postman collection & seed data
+├── middlewares/      # Authentication & validation
+├── models/           # MongoDB schemas
+├── routes/           # API endpoints
+├── services/         # Business logic services
+├── tests/            # Jest test suites
+├── utils/            # Utilities & configurations
+├── app.js            # Express app setup
+└── server.js         # Application entry point
 │
-│── frontend/               # React + Vite App
-│   │── .idea/              # IDE configs
-│   │── node_modules/       # Frontend dependencies
-│   │── public/             # Static assets
-│   │── src/                # React source code (pages, components, hooks, routes, context)
-│   │── .env                # Frontend περιβάλλον (API URL)
-│   │── .gitignore
-│   │── components.json     # shadcn/ui components config
-│   │── diafora.tsx         # extra αρχείο για testing/παραδείγματα
-│   │── eslint.config.js
-│   │── index.html          # HTML entry
-│   │── package-lock.json
-│   │── package.json
-│   │── README.md           # Frontend docs (optional)
-│   │── tsconfig.app.json
-│   │── tsconfig.json
-│   │── tsconfig.node.json
-│   │── vite.config.ts      # Vite configuration
-│
+frontend/
+├── src/
+│   ├── api/           # API service functions
+│   ├── components/    # Reusable UI components
+│   ├── context/       # AuthContext & CartContext
+│   ├── hooks/         # Custom React hooks
+│   ├── lib/           # Utilities & configurations
+│   ├── pages/         # Route components
+│   ├── providers/     # App providers
+│   ├── routes/        # Routing configuration
+│   └── utils/         # Helper functions
+├── package.json
+└── vite.config.ts
 │── README.md               # Main project documentation
+```
 
-API Documentation:
 
-Swagger available at:
+## Core Features
+
+### <ins>  Authentication System</ins>
+* User registration and login
+
+* JWT-based authentication
+
+* Role-based access control (ADMIN, EDITOR, READER)
+
+### <ins> Shopping Experience</ins>
+* Product catalog with search and filtering
+
+* Shopping cart management with Context API
+
+* Secure checkout process
+
+* Order history and tracking
+
+### <ins> Admin Dashboard</ins>
+* User management and role assignment
+
+* Product inventory control
+
+* Order processing system
+
+* Sales analytics
+
+### <ins> API Documentation</ins>
+
+Comprehensive API documentation available via Swagger UI: 
 http://localhost:3000/api-docs
 
-Testing:
+### Main API Endpoints
 
+Method	Endpoint	        Description	         Access
+POST	/api/auth/login	    User authentication	 Public
+POST	/api/auth/register	User registration	 Public
+GET	    /api/products	    Get products list	 Public
+POST	/api/products	    Create new product	 Admin
+GET	    /api/orders	        Get user orders	     Authenticated
+POST	/api/orders	        Create new order	 Authenticated
+
+
+### <ins> Testing</ins>
+```bash
 cd backend
 npm test
+```
+### <ins>API Testing with Postman</ins>
+```
+backend/files/CF7_Tech-eShop_Postman_Collection.json
+```
 
----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
