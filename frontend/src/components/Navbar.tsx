@@ -13,9 +13,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {CircleUserRound, Search, ShoppingCart} from "lucide-react";
+import {CircleUserRound, ShoppingCart} from "lucide-react";
 import {useCart} from "@/hooks/useCart.ts";
-import SearchBar from "./SearchBar.tsx"
 
 const Navbar = () => {
   const {user, logout} = useAuth();
@@ -26,7 +25,7 @@ const Navbar = () => {
         <Link to="/" className="text-xl font-bold hover:underline">
           Tech-eShop
         </Link>
-        <SearchBar />
+      
         <NavigationMenu>
           <NavigationMenuList className="flex gap-5">
             {user ? (

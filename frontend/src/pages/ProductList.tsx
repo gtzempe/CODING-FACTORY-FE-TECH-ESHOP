@@ -12,7 +12,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {ShoppingCart} from "lucide-react";
 import {useCart} from "@/hooks/useCart.ts";
 import {toast} from "sonner";
-import ProductSearch from "@/components/SearchBar";
+
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -62,7 +62,7 @@ export default function ProductList() {
 
   return (
       <>
-        {/* <div className="flex items-center justify-center mb-4">
+        <div className="flex items-center justify-center mb-4">
           <input
               className="placeholder:font-bold border placeholder:text-green-800 border-green-800 text-black px-3 py-2 w-150 m-1 rounded-3xl"
               type="text"
@@ -70,8 +70,8 @@ export default function ProductList() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
           />
-        </div> */}
-        <ProductSearch onSearch={setSearch} />
+        </div>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {filteredProducts.map((product) => (
               <Card
