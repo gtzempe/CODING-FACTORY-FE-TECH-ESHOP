@@ -11,20 +11,20 @@ const user = require("./routes/user.route");
 const product = require("./routes/product.route");
 const order = require("./routes/order.route");
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173", "https://coding-factory-fe-tech-eshop-5h2g24tiw-tzempes-projects.vercel.app"],
-    credentials: true,
-  })
-);
-
-
-
 // app.use(
 //   cors({
-//     origin: "*",
+//     origin: ["http://localhost:5173", "https://coding-factory-fe-tech-eshop-5h2g24tiw-tzempes-projects.vercel.app"],
+//     credentials: true,
 //   })
 // );
+
+
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use("/api/auth", auth);
 app.use("/api/users", user);
