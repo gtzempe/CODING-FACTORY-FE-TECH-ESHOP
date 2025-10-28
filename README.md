@@ -73,7 +73,7 @@ API Documentation: http://localhost:3000/api-docs
 	
 1.	Admin:	admin	    123!@#	    Full system access
 2.	User:	irina_c	    123!@#	    Customer features
-3.	User:	natalia_v	123!@#	    Customer features
+3.	User:	zach_dev	123!@#	    Customer features
 ```
 
 
