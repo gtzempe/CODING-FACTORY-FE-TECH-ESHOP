@@ -13,10 +13,18 @@ const order = require("./routes/order.route");
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://your-frontend.vercel.app"],
+    origin: ["http://localhost:5173", "https://coding-factory-fe-tech-eshop-cuhzxmx91-tzempes-projects.vercel.app"],
     credentials: true,
   })
 );
+
+
+
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
 
 app.use("/api/auth", auth);
 app.use("/api/users", user);
