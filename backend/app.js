@@ -13,7 +13,7 @@ const order = require("./routes/order.route");
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://coding-factory-fe-tech-eshop-cuhzxmx91-tzempes-projects.vercel.app"],
+    origin: ["http://localhost:5173", "https://coding-factory-fe-tech-eshop-5h2g24tiw-tzempes-projects.vercel.app"],
     credentials: true,
   })
 );
