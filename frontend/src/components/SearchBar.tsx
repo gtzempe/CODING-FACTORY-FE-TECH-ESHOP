@@ -14,9 +14,9 @@ export default function ProductSearch({ onSearch }: ProductSearchProps) {
   };
 
   return (
-    <div className="flex items-center justify-center mb-4">
+    <div className="flex items-center justify-center ">
       <input
-        className="placeholder:font-bold border placeholder:text-green-800 border-green-800 text-black px-3 py-2 w-150 m-1 rounded-3xl"
+        className="placeholder:font-bold border placeholder:text-green-800 border-white text-black px-3 py-2 w-150 m-1 rounded-3xl"
         type="text"
         placeholder="🔍 Αναζήτηση προϊόντος..."
         value={search}
