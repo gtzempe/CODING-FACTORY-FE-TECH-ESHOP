@@ -14,7 +14,7 @@ Full-stack e-commerce application developed for Coding Factory. A complete onlin
 Tech-eShop is a modern e-commerce solution that allows users to register, browse products, manage shopping carts, and complete orders. The application features role-based access control and a comprehensive admin panel.
 
 ## Live Demo: ⚙️ [FE-TECH-ESHOP](https://coding-factory-fe-tech-eshop-cuhzxmx91-tzempes-projects.vercel.app/) 
-## Live Api-docs: [API-DOCS](https://coding-factory-fe-tech-eshop.onrender.com/api-docs/)
+## Live Api-docs: 🧬 [API-DOCS](https://coding-factory-fe-tech-eshop.onrender.com/api-docs/)
 
 ## Quick Start
 
