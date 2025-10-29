@@ -147,21 +147,21 @@ export function Cart() {
                   </div>
                   <div className="flex justify-between mt-4 px-2">
                     <img
-                        src="../../public/google-pay-cart.svg"
+                        src="/google-pay-cart.svg"
                         alt="google-pay-cart logo"
                     />
-                    <img src="../../public/ic-iris-cart.svg" alt="iris-cart logo"/>
+                    <img src="/ic-iris-cart.svg" alt="iris-cart logo"/>
                     <img
-                        src="../../public/ic-mastercard-cart.svg"
+                        src="/ic-mastercard-cart.svg"
                         alt="mastercard-cart logo"
                     />
                     <img
-                        src="../../public/ic-paypal-cart.svg"
+                        src="/ic-paypal-cart.svg"
                         alt="paypal-cart logo"
                     />
-                    <img src="../../public/ic-visa-cart.svg" alt="visa-cart logo"/>
+                    <img src="/ic-visa-cart.svg" alt="visa-cart logo"/>
                     <img
-                        src="../../public/revolut-pay-checkout.svg"
+                        src="/revolut-pay-checkout.svg"
                         alt="revolut-cart logo"
                     />
                   </div>
@@ -174,7 +174,7 @@ export function Cart() {
                     <div className="bg-white border rounded-xl shadow-sm overflow-hidden max-w-md">
                       <div className="flex items-center gap-4 px-4 py-3">
                         <img
-                            src="../../public/user-experience-stars.svg"
+                            src="/user-experience-stars.svg"
                             alt="Customer Experience"
                             className="w-6 h-6"
                         />
@@ -187,7 +187,7 @@ export function Cart() {
                       <hr className="border-gray-300"/>
                       <div className="flex items-center gap-3 px-4 py-3">
                         <img
-                            src="../../public/fast-delivery-truck.svg"
+                            src="/fast-delivery-truck.svg"
                             alt="delivery-truck logo"
                             className="w-6 h-6"
                         />
