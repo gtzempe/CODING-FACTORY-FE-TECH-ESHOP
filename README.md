@@ -16,6 +16,8 @@ Tech-eShop is a modern e-commerce solution that allows users to register, browse
 ## Live Demo: ⚙️ [FE-TECH-ESHOP](https://coding-factory-fe-tech-eshop-5h2g24tiw-tzempes-projects.vercel.app/) 
 ## Live Api-docs: 🧬 [API-DOCS](https://coding-factory-fe-tech-eshop.onrender.com/api-docs/)
 
+---
+
 ## Quick Start
 
 ### Prerequisites
