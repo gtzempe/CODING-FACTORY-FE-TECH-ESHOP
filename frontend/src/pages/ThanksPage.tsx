@@ -6,25 +6,25 @@ export default function ThanksPage() {
   const navigate = useNavigate()
 
   return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-6">
-        <div className="bg-white shadow-lg rounded-lg p-10 max-w-lg text-center">
-          <CheckCircle className="w-20 h-20 text-green-600 mx-auto mb-6"/>
-          <h1 className="text-3xl font-bold text-green-700 mb-4">
+      <div className="flex min-h-[calc(100vh-9rem)] flex-col items-center justify-center bg-[#f6f6f7] px-4 py-10 sm:px-6">
+        <div className="max-w-lg rounded-2xl bg-white p-7 text-center shadow-sm ring-1 ring-black/5 sm:p-10">
+          <CheckCircle className="mx-auto mb-6 size-16 text-[#047857] sm:size-20"/>
+          <h1 className="mb-4 text-2xl font-bold text-[#24212a] sm:text-3xl">
             Ευχαριστούμε για την παραγγελία σας!
           </h1>
-          <p className="text-gray-600 mb-8">
+          <p className="mb-8 text-gray-600">
             Η παραγγελία σας ολοκληρώθηκε με επιτυχία. Θα λάβετε email επιβεβαίωσης με όλες τις λεπτομέρειες.
           </p>
 
           <div className="space-y-3">
             <Button
-                className="w-full bg-green-600 hover:bg-green-700 text-white text-lg"
+                className="h-11 w-full rounded-full bg-[#064e3b] text-base font-semibold text-white transition hover:bg-[#047857]"
                 onClick={() => navigate("/")}
             >
               Επιστροφή στην Αρχική
             </Button>
             <Button
-                className="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 text-lg"
+                className="h-11 w-full rounded-full bg-gray-100 text-base font-semibold text-[#24212a] transition hover:bg-gray-200"
                 onClick={() => navigate("/products")}
             >
               Συνέχεια στα Προϊόντα

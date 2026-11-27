@@ -15,9 +15,17 @@ function App() {
             <CartProvider>
               <Toaster richColors position='bottom-right'/>
               <Navbar/>
-              <main className="p-4">
+              <main className="min-h-[calc(100vh-4rem)] bg-[#f6f6f7]">
                 <AppRoutes/>
               </main>
+              <footer className="border-t border-white/10 bg-[#052e24] text-white">
+                <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+                  <span className="text-xl font-bold tracking-tight text-white">
+                    Tech-eShop
+                  </span>
+                  <p className="text-sm text-white/75">© 2026 Tech-eShop. Εκπαιδευτικό project.</p>
+                </div>
+              </footer>
             </CartProvider>
           </AuthProvider>
         </BrowserRouter>

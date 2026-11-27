@@ -174,14 +174,15 @@ export default function Account() {
   };
 
   return (
-      <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-md border">
-        <h1 className="text-2xl font-bold mb-4">Account</h1>
+      <div className="mx-auto my-12 max-w-xl rounded-2xl border-0 bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-8">
+        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#047857]">Tech-eShop</p>
+        <h1 className="mb-6 text-2xl font-bold tracking-tight text-[#24212a]">Account</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* username */}
           <div>
             <label htmlFor="username">Username</label>
             <input
-                className="w-full border border-gray-300 rounded px-2 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100 disabled:text-gray-500"
                 type="text"
                 name="username"
                 value={formValues.username}
@@ -195,7 +196,7 @@ export default function Account() {
           <div>
             <label htmlFor="password">Password</label>
             <input
-                className="w-full border border-gray-300 rounded px-2 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 type="password"
                 name="password"
                 value={formValues.password}
@@ -210,7 +211,7 @@ export default function Account() {
           <div>
             <label htmlFor="email">Email</label>
             <input
-                className="w-full border border-gray-300 rounded px-2 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 type="email"
                 name="email"
                 value={formValues.email}
@@ -224,7 +225,7 @@ export default function Account() {
           <div>
             <label htmlFor="name">Name</label>
             <input
-                className="w-full border border-gray-300 rounded px-2 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 type="text"
                 name="name"
                 value={formValues.name}
@@ -238,7 +239,7 @@ export default function Account() {
           <div>
             <label htmlFor="surname">Surname</label>
             <input
-                className="w-full border border-gray-300 rounded px-2 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 type="text"
                 name="surname"
                 value={formValues.surname}
@@ -252,7 +253,7 @@ export default function Account() {
           <div>
             <label htmlFor="address.road">Street</label>
             <input
-                className="w-full border border-gray-300 rounded px-2 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 type="text"
                 name="address.road"
                 value={formValues.address.road}
@@ -265,7 +266,7 @@ export default function Account() {
           <div>
             <label htmlFor="address.area">City</label>
             <input
-                className="w-full border border-gray-300 rounded px-2 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 type="text"
                 name="address.area"
                 value={formValues.address.area}
@@ -279,7 +280,7 @@ export default function Account() {
           <div>
             <label htmlFor="phone[0].type">Phone Type</label>
             <select
-                className="w-full border border-gray-300 rounded px-1 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 name="phone[0].type"
                 value={formValues.phone[0].type}
                 onChange={handleChange}
@@ -296,7 +297,7 @@ export default function Account() {
           <div>
             <label htmlFor="phone[0].number">Phone Number</label>
             <input
-                className="w-full border border-gray-300 rounded px-2 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 type="tel"
                 name="phone[0].number"
                 value={formValues.phone[0].number}
@@ -307,13 +308,13 @@ export default function Account() {
           </div>
 
           <div className="flex justify-between mt-6">
-            <Button className="bg-green-800 text-white" type="submit">
+            <Button className="h-11 rounded-full bg-[#064e3b] px-6 text-white transition hover:bg-[#047857]" type="submit">
               Update
             </Button>
 
             {fromCart && (
                 <Button
-                    className="bg-blue-600 text-white w-70"
+                    className="h-11 rounded-full bg-[#047857] px-5 text-white transition hover:bg-[#065f46]"
                     type="button"
                     onClick={() => navigate("/order-completed")}
                 >

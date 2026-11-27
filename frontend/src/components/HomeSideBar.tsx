@@ -34,21 +34,22 @@ export default function HomeSideBar() {
   const navigate = useNavigate();
 
   return (
-      <div className="w-72 bg-white shadow rounded-lg p-4 space-y-4">
-        <h2 className="text-xl font-semibold mb-2">Κατηγορίες</h2>
-        <hr/>
-        <ul className="space-y-3">
+      <nav aria-label="Κατηγορίες προϊόντων" className="py-4">
+        <h2 className="sr-only">Κατηγορίες</h2>
+        <ul className="category-scrollbar-hidden flex gap-2 overflow-x-auto pb-1">
           {categories.map((cat) => (
-              <li
-                  key={cat.name}
-                  onClick={() => navigate(`/products?category=${cat.name}`)}
-                  className="flex items-center gap-3 text-lg cursor-pointer hover:text-green-700 transition"
-              >
-                <cat.icon className="w-6 h-6 text-green-600"/>
-                <span>{cat.name}</span>
+              <li key={cat.name} className="shrink-0">
+                <button
+                    type="button"
+                    onClick={() => navigate(`/products?category=${cat.name}`)}
+                    className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-[#37333e] transition hover:border-[#047857] hover:bg-emerald-50 hover:text-[#065f46] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#047857]"
+                >
+                  <cat.icon className="size-4 text-[#047857]"/>
+                  <span>{cat.name}</span>
+                </button>
               </li>
           ))}
         </ul>
-      </div>
+      </nav>
   );
 }

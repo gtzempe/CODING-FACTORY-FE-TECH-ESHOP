@@ -92,13 +92,14 @@ export default function Login() {
   };
 
   return (
-      <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-md border">
-        <h1 className="text-2xl font-bold mb-4">Login</h1>
+      <div className="mx-auto my-12 max-w-md rounded-2xl border-0 bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-8">
+        <p className="mb-2 text-xs font-bold uppercase tracking-wider text-[#047857]">Tech-eShop</p>
+        <h1 className="mb-6 text-2xl font-bold tracking-tight text-[#24212a]">Login</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="username">Username</label>
             <input
-                className="w-full border border-gray-300 rounded px-3 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 type="text"
                 name="username"
                 value={value.username}
@@ -115,7 +116,7 @@ export default function Login() {
           <div>
             <label htmlFor="password">Password</label>
             <input
-                className="w-full border border-gray-300 rounded px-3 py-2"
+                className="w-full rounded-xl border border-gray-200 bg-white px-3 py-2.5 outline-none transition focus:border-[#047857] focus:ring-2 focus:ring-emerald-100"
                 type="password"
                 name="password"
                 value={value.password}
@@ -129,7 +130,7 @@ export default function Login() {
           </div>
 
           <Button
-              className="bg-green-800 text-white px-3 py-2 mt-3"
+              className="mt-3 h-11 w-full rounded-full bg-[#064e3b] px-5 font-semibold text-white transition hover:bg-[#047857]"
               type="submit"
               disabled={isSubmitted}
           >

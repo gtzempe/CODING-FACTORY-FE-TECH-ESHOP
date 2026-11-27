@@ -66,19 +66,22 @@ export default function OrderCompleted() {
   };
 
   return (
-      <div className="max-w-7xl mx-auto mt-10 bg-white shadow-md rounded-lg p-8 space-y-6 ">
-        <h1 className="text-3xl font-bold mb-4">Σύνοψη Παραγγελίας</h1>
+      <div className="mx-auto my-8 max-w-5xl space-y-6 rounded-2xl border-0 bg-white p-5 shadow-sm ring-1 ring-black/5 sm:p-8">
+        <div>
+          <p className="mb-1 text-xs font-bold uppercase tracking-wider text-[#047857]">Tech-eShop</p>
+          <h1 className="text-2xl font-bold tracking-tight text-[#24212a] sm:text-3xl">Σύνοψη Παραγγελίας</h1>
+        </div>
 
         <Table>
           <TableHeader>
-            <TableRow className="bg-gray-100 text-xl">
+            <TableRow className="bg-[#f4f4f6] text-sm sm:text-base">
               <TableHead className="w-1/6">#</TableHead>
               <TableHead className="w-2/6">Προϊόν</TableHead>
               <TableHead className="w-1/6 text-center">Ποσότητα</TableHead>
               <TableHead className="w-1/6 text-right">Τιμή</TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody className="text-lg">
+          <TableBody className="text-sm sm:text-base">
             {cartItems.map((product: OrderItems) => (
                 <TableRow key={product.productId}>
                   <TableCell className="text-sm text-gray-600">
@@ -97,7 +100,7 @@ export default function OrderCompleted() {
         </Table>
 
         {userData && (
-            <div className="bg-gray-50 p-4 rounded-lg space-y-1 text-lg ">
+            <div className="space-y-1 rounded-xl bg-[#f6f6f7] p-4 text-sm sm:text-base">
               <p>
                 <span className="font-semibold">Διεύθυνση:</span>{" "}
                 {userData.address.road}
@@ -117,14 +120,14 @@ export default function OrderCompleted() {
         )}
 
         <div className="flex justify-end">
-          <p className="text-2xl font-bold">
-            Σύνολο: <span className="text-green-700">{totalWorth} €</span>
+          <p className="text-xl font-bold sm:text-2xl">
+            Σύνολο: <span className="text-[#047857]">{totalWorth} €</span>
           </p>
         </div>
 
         <div className="flex justify-end">
           <Button
-              className="bg-green-800 text-white px-6 py-3 text-lg"
+              className="h-11 rounded-full bg-[#064e3b] px-6 text-base font-semibold text-white transition hover:bg-[#047857]"
               onClick={handleCompleteOrder}
           >
             Ολοκλήρωση Παραγγελίας

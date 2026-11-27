@@ -21,17 +21,23 @@ const Navbar = () => {
   const {totalItems} = useCart();
 
   return (
-      <nav className="sticky top-0 z-50 bg-green-800 text-white flex items-center justify-between px-8 py-4 h-15">
-        <Link to="/" className="text-xl font-bold hover:underline">
+      <nav className="sticky top-0 z-50 flex h-16 items-center justify-between bg-[#064e3b] px-4 text-white shadow-sm sm:h-20 sm:px-6 lg:px-10">
+        <Link to="/" className="shrink-0 text-2xl font-extrabold tracking-tight text-white transition hover:text-emerald-100 sm:text-[1.8rem]">
           Tech-eShop
         </Link>
-      
+
         <NavigationMenu>
-          <NavigationMenuList className="flex gap-5">
+          <NavigationMenuList className="flex items-center gap-3 sm:gap-5">
+            <NavigationMenuItem>
+              <Link to="/products" aria-label="Αναζήτηση προϊόντων" className="inline-flex h-10 items-center gap-2 rounded-full bg-white/10 px-4 text-sm font-semibold transition hover:bg-white/20">
+                <span className="hidden sm:inline">Αναζήτηση</span>
+                <span aria-hidden="true">⌕</span>
+              </Link>
+            </NavigationMenuItem>
             {user ? (
                 <>
                   <DropdownMenu>
-                    <DropdownMenuTrigger><CircleUserRound/></DropdownMenuTrigger>
+                    <DropdownMenuTrigger className="inline-flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"><CircleUserRound size={23}/></DropdownMenuTrigger>
                     <DropdownMenuContent>
                       <DropdownMenuLabel>Ο λογαριασμός μου</DropdownMenuLabel>
                       <DropdownMenuSeparator/>
@@ -51,7 +57,7 @@ const Navbar = () => {
             ) : (
                 <>
                   <DropdownMenu>
-                    <DropdownMenuTrigger><CircleUserRound size={30}/></DropdownMenuTrigger>
+                    <DropdownMenuTrigger className="inline-flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20"><CircleUserRound size={23}/></DropdownMenuTrigger>
                     <DropdownMenuContent>
                       <DropdownMenuLabel>Ο λογαριασμός μου</DropdownMenuLabel>
                       <DropdownMenuSeparator/>
@@ -70,8 +76,8 @@ const Navbar = () => {
                 </>
             )}
             <NavigationMenuItem>
-              <Link to="/cart">
-                <ShoppingCart size={30}/>
+              <Link to="/cart" aria-label="Καλάθι" className="relative inline-flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20">
+                <ShoppingCart size={22}/>
                 {totalItems > 0 && (
                     <span
                         className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full px-2 py-0.5">

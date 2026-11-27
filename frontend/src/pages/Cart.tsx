@@ -36,44 +36,44 @@ export function Cart() {
   const totalWorth = subTotal + services + shipping;
 
   return (
-      <>
+      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-8">
         {cartItems.length > 0 ? (
             <>
-              <div className="ml-[650px] flex justify-center">
+              <div className="mb-4 flex justify-end">
                 <Button
                     onClick={() => clearCart()}
-                    className="font-bold text-1xl"
+                    className="rounded-full font-semibold text-gray-600 hover:bg-red-50 hover:text-red-600"
                     variant="ghost"
                 >
                   Αφαίρεση όλων <TrashIcon/>
                 </Button>
               </div>
-              <div className="flex gap-10 mt-5 px-6 h-screen">
-                <div className="w-3/4 overflow-y-auto pr-2 space-y-6 h-[calc(100vh-100px)]">
+              <div className="grid grid-cols-1 items-start gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+                <div className="space-y-4">
                   {cartItems.map((product: OrderItems) => (
                       <div
                           key={product.productId}
-                          className="h-60 border border-black p-4 shadow-md rounded-lg flex justify-between items-center"
+                          className="flex flex-col gap-4 rounded-2xl border-0 bg-white p-4 shadow-sm ring-1 ring-black/5 sm:flex-row sm:items-center sm:justify-between"
                       >
-                        <div className="w-50 h-40 flex items-center justify-center bg-white">
+                        <div className="flex h-32 w-full shrink-0 items-center justify-center rounded-xl bg-[#f4f4f6] p-2 sm:h-28 sm:w-32">
                           <img
                               className="max-w-full max-h-full object-contain"
                               src={product.image}
                               alt={product.product}
                           />
                         </div>
-                        <div className="w-[350px]">
-                          <h1 className="text-xl font-bold mb-2 ">
+                        <div className="min-w-0 flex-1">
+                          <h1 className="mb-2 line-clamp-2 text-base font-semibold sm:text-lg">
                             {product.product}
                           </h1>
-                          <p className="font-semibold text-gray-500">
+                          <p className="text-sm font-medium text-gray-500">
                             {product.productId.slice(-7)}
                           </p>
                         </div>
-                        <div className="flex items-center gap-2 rounded-lg">
+                        <div className="flex items-center gap-2 rounded-full border border-gray-200 p-1">
                           <Button
                               variant="ghost"
-                              className="bg-gray-100"
+                              className="size-8 rounded-full bg-gray-100"
                               onClick={() =>
                                   product.quantity > 1 &&
                                   updateQuantity(product.productId, product.quantity - 1)
@@ -86,7 +86,7 @@ export function Cart() {
                     </span>
                           <Button
                               variant="ghost"
-                              className="bg-gray-100"
+                              className="size-8 rounded-full bg-gray-100"
                               onClick={() =>
                                   updateQuantity(product.productId, product.quantity + 1)
                               }
@@ -94,14 +94,14 @@ export function Cart() {
                             +
                           </Button>
                         </div>
-                        <div className="flex items-center gap-2 font-semibold text-2xl">
+                        <div className="flex items-center gap-2 text-lg font-bold sm:text-xl">
                           <span>{product.price} €</span>
                         </div>
-                        <div className="flex items-center gap-2 mr-2 ">
+                        <div className="flex items-center gap-2 sm:ml-2">
                           <Button
                               onClick={() => removeFromCart(product.productId)}
                               variant="destructive"
-                              className="hover:animate-pulse"
+                              className="rounded-full"
                               size="lg"
                           >
                             <Trash2/>
@@ -111,41 +111,41 @@ export function Cart() {
                   ))}
                 </div>
 
-                <div className="w-1/4 px-4 rounded-lg shadow-md sticky top-[120px] self-start">
-                  <div className="text-2xl font-bold mb-6">
+                <aside className="rounded-2xl bg-white px-5 py-6 shadow-sm ring-1 ring-black/5 xl:sticky xl:top-24">
+                  <div className="mb-6 text-xl font-bold">
                     <p>Σύνοψη παραγγελίας</p>
                   </div>
                   <div className="flex justify-between mb-2">
                     <p>Αξία προιόντων(χωρίς ΦΠΑ)</p>
-                    <p className="mr-5">{subTotalWithoutVat.toFixed(2)} €</p>
+                    <p>{subTotalWithoutVat.toFixed(2)} €</p>
                   </div>
                   <div className="flex justify-between mb-2">
                     <p>Αξία προιόντων(με ΦΠΑ)</p>
-                    <p className="mr-5">{subTotal} €</p>
+                    <p>{subTotal} €</p>
                   </div>
                   <div className="flex justify-between mb-2">
                     <p>Αξία υπηρεσιών</p>
-                    <p className="mr-5">{services} €</p>
+                    <p>{services} €</p>
                   </div>
                   <div className="flex justify-between mb-3">
                     <p>Μεταφορικά</p>
-                    <p className="mr-5">{shipping} €</p>
+                    <p>{shipping} €</p>
                   </div>
                   <div className="flex justify-between mt-6">
-                    <p className="text-3xl font-bold">Σύνολο</p>
-                    <p className="mr-5 text-4xl font-bold text-green-600">
+                    <p className="text-xl font-bold">Σύνολο</p>
+                    <p className="text-2xl font-extrabold text-[#24212a]">
                       {totalWorth} €
                     </p>
                   </div>
                   <div>
                     <Button
                         onClick={handleProceedToCheckout}
-                        className="mt-4 mb-2 w-full text-2xl h-13 bg-green-500 hover:bg-green-800 hover:animate-pulse"
+                        className="mt-5 h-12 w-full rounded-full bg-[#064e3b] text-base font-semibold text-white transition hover:bg-[#047857]"
                     >
                       Συνέχεια για Παραγγελία...
                     </Button>
                   </div>
-                  <div className="flex justify-between mt-4 px-2">
+                  <div className="mt-4 flex flex-wrap items-center justify-between gap-3 px-1">
                     <img
                         src="/google-pay-cart.svg"
                         alt="google-pay-cart logo"
@@ -165,13 +165,13 @@ export function Cart() {
                         alt="revolut-cart logo"
                     />
                   </div>
-                  <div className="mt-4 space-y-6">
+                  <div className="mt-5 space-y-4">
                     <p className="text-sm text-gray-700">
                       Η πληρωμή με αντικαταβολή δεν είναι διαθέσιμη για αυτή την
                       παραγγελία.
                     </p>
                     <hr className="border-gray-700 my-2"/>
-                    <div className="bg-white border rounded-xl shadow-sm overflow-hidden max-w-md">
+                    <div className="max-w-md overflow-hidden rounded-xl border border-gray-100 bg-gray-50">
                       <div className="flex items-center gap-4 px-4 py-3">
                         <img
                             src="/user-experience-stars.svg"
@@ -197,23 +197,23 @@ export function Cart() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </aside>
               </div>
             </>
         ) : (
-            <div className="flex flex-col items-center justify-center mt-10 space-y-6">
+            <div className="flex min-h-[55vh] flex-col items-center justify-center space-y-6 py-10 text-center">
               <p>
                 <img className="h-100 w-100" src="/7595958.png" alt="empty"/>
               </p>
-              <p className="text-5xl font-bold text-gray-700">
+              <p className="text-3xl font-bold text-[#24212a] sm:text-4xl">
                 Το καλάθι σου είναι άδειο...
               </p>
               <Button onClick={() => navigate('/')}
-                      className="mt-8 w-auto text-2xl h-13 bg-green-500 hover:bg-green-800 hover:animate-pulse">
+                      className="mt-4 h-12 rounded-full bg-[#064e3b] px-6 text-base font-semibold text-white transition hover:bg-[#047857]">
                 Επιστροφή στην αρχική σελίδα
               </Button>
             </div>
         )}
-      </>
+      </main>
   );
 }
