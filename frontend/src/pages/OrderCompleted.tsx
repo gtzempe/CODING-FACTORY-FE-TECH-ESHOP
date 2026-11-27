@@ -9,7 +9,7 @@ import {
 import type {OrderItems, OrderPayload} from "@/api/order.ts";
 import {useCart} from "@/hooks/useCart.ts";
 import {useAuth} from "@/hooks/useAuth.ts";
-import {findMe} from "@/api/account.ts";
+import {findMe, type AccountFields} from "@/api/account.ts";
 import {useEffect, useState} from "react";
 import {Button} from "@/components/ui/button.tsx";
 import {toast} from "sonner";
@@ -19,7 +19,7 @@ import {useNavigate} from "react-router-dom";
 export default function OrderCompleted() {
   const {cartItems, clearCart} = useCart();
   const {user} = useAuth();
-  const [userData, setUserData] = useState<any>(null);
+  const [userData, setUserData] = useState<AccountFields | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -60,7 +60,7 @@ export default function OrderCompleted() {
       clearCart();
       navigate("/thanks");
     } catch (err) {
-      toast.error("Αποτυχία ολοκλήρωσης παραγγελίας");
+      toast.error(err instanceof Error && err.name !== "TypeError" ? err.message : "Αποτυχία ολοκλήρωσης παραγγελίας");
       console.error(err);
     }
   };

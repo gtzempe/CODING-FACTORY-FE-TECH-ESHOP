@@ -46,6 +46,14 @@ const Navbar = () => {
                           Λογαριασμός
                         </Link>
                       </DropdownMenuItem>
+                      <DropdownMenuItem asChild>
+                        <Link to="/orders">Οι παραγγελίες μου</Link>
+                      </DropdownMenuItem>
+                      {user.roles?.includes("ADMIN") && (
+                        <DropdownMenuItem asChild>
+                          <Link to="/admin">Διαχείριση καταστήματος</Link>
+                        </DropdownMenuItem>
+                      )}
                       <DropdownMenuItem>
                         <button onClick={logout} className="hover:underline">
                           Έξοδος

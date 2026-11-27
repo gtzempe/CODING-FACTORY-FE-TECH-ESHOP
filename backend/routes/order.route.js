@@ -14,6 +14,8 @@ router.get(
   orderController.getAllOrders
 );
 router.post("/", verifyToken, orderController.createOrder);
+router.get("/:id", verifyToken, verifyRoles("ADMIN"), orderController.getOrderById);
+router.put("/:id", verifyToken, verifyRoles("ADMIN"), orderController.updateOrder);
 router.delete(
   "/:id",
   verifyToken,

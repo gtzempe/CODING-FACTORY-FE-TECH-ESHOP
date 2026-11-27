@@ -14,6 +14,16 @@ exports.getAllProducts = async (req, res) => {
   }
 };
 
+exports.getAdminProducts = async (_req, res) => {
+  try {
+    const products = await productService.getAdminProducts();
+    res.status(200).json({ status: true, data: products });
+  } catch (err) {
+    logger.error("GET /api/products/admin - " + err.message);
+    res.status(500).json({ status: false, data: "Could not load catalog" });
+  }
+};
+
 exports.getProductById = async (req, res) => {
   const productId = req.params.id;
   logger.info(`GET /api/products/${productId} - Fetching product`);

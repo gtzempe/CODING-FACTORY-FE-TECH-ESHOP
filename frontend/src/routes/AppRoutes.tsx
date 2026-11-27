@@ -8,6 +8,8 @@ import Product from "@/pages/Product.tsx";
 import Account from "@/pages/Account.tsx";
 import OrderCompleted from "@/pages/OrderCompleted.tsx";
 import ThanksPage from "@/pages/ThanksPage.tsx";
+import Admin from "@/pages/Admin.tsx";
+import MyOrders from "@/pages/MyOrders.tsx";
 
 export const AppRoutes = () => {
   return (
@@ -15,6 +17,8 @@ export const AppRoutes = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/account" element={<Account/>}/>
+        <Route path="/admin" element={<Admin/>}/>
+        <Route path="/orders" element={<MyOrders/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/products" element={<ProductList/>}/>
         <Route path="/product/:id" element={<Product/>}/>

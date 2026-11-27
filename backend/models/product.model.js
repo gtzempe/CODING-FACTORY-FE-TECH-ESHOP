@@ -25,10 +25,17 @@ const productSchema = new Schema(
       required: true,
       min: 0,
     },
+    status: {
+      type: String,
+      enum: ["active", "draft", "archived"],
+      default: "active",
+      required: true,
+    },
     stock: {
       type: Number,
       required: true,
       min: 0,
+      validate: { validator: Number.isSafeInteger, message: "Stock must be a whole number" },
       default: 0,
     },
   },

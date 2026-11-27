@@ -43,7 +43,9 @@ export async function createOrder(payload: OrderPayload): Promise<CartResponse |
     const data: CartResponse = await res.json();
 
     if (!res.ok || !data.status) {
-      throw new Error(data.message || "Order failed");
+      throw new Error(res.status === 400
+        ? "Κάποιο προϊόν δεν είναι πλέον διαθέσιμο. Έλεγξε το καλάθι σου."
+        : "Αποτυχία ολοκλήρωσης παραγγελίας.");
     }
 
     return data;

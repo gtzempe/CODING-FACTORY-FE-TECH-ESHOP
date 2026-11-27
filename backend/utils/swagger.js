@@ -56,14 +56,15 @@ exports.options = {
       },
       ProductInput: {
         type: "object",
-        required: ["product", "description", "category", "price", "stock"],
+        required: ["product", "description", "category", "image", "price"],
         properties: {
           product: { type: "string" },
           description: { type: "string" },
           category: { type: "string" },
           image: { type: "string" },
           price: { type: "number" },
-          stock: { type: "number" },
+          stock: { type: "integer", minimum: 0 },
+          status: { type: "string", enum: ["active", "draft", "archived"] },
         },
       },
       OrderInput: {
@@ -349,6 +350,18 @@ exports.options = {
         },
       },
     },
+    "/api/products/admin": {
+      get: {
+        tags: ["Products"],
+        summary: "List products in all statuses (ADMIN only)",
+        security: [{ bearerAuth: [] }],
+        responses: {
+          200: { description: "Full catalog" },
+          401: { description: "Authentication required" },
+          403: { description: "Admin access required" },
+        },
+      },
+    },
     "/api/products/{id}": {
       get: {
         tags: ["Products"],
@@ -473,6 +486,40 @@ exports.options = {
           200: { description: "Order found" },
           404: { description: "Order not found" },
           500: { description: "Server error" },
+        },
+      },
+      put: {
+        tags: ["Orders"],
+        summary: "Update order status (ADMIN only)",
+        security: [{ bearerAuth: [] }],
+        parameters: [
+          {
+            name: "id",
+            in: "path",
+            required: true,
+            schema: { type: "string" },
+          },
+        ],
+        requestBody: {
+          required: true,
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                required: ["status"],
+                properties: {
+                  status: { type: "string", enum: ["pending", "completed", "cancelled"] },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          200: { description: "Order updated" },
+          400: { description: "Invalid order ID or status" },
+          401: { description: "Authentication required" },
+          403: { description: "Admin access required" },
+          404: { description: "Order not found" },
         },
       },
       delete: {

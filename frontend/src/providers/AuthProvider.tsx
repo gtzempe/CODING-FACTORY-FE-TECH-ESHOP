@@ -18,7 +18,7 @@ export type DecodedToken = {
 export const AuthProvider = ({children}: { children: ReactNode }) => {
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [user, setUser] = useState<DecodedToken | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const navigate = useNavigate();
 

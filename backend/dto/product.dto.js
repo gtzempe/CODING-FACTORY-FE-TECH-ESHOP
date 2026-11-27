@@ -6,6 +6,7 @@ exports.toProductDTO = (product) => ({
   image: product.image,
   price: product.price,
   stock: product.stock,
+  status: product.status || "active",
 });
 
 exports.toProductListDTO = (products) => {

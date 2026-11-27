@@ -4,6 +4,10 @@ exports.findAllOrders = async () => {
   return await Order.find();
 };
 
+exports.findOrdersByUserId = async (userId) => {
+  return Order.find({ userId }).sort({ createdAt: -1 });
+};
+
 exports.findOrderById = async (orderId) => {
   return await Order.findById(orderId);
 };
@@ -16,7 +20,7 @@ exports.updateOrderById = async (orderId, updateData) => {
   return await Order.findByIdAndUpdate(
     orderId,
     { $set: updateData },
-    { new: true }
+    { new: true, runValidators: true }
   );
 };
 

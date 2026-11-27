@@ -1,12 +1,19 @@
 const Product = require("../models/product.model");
 
-exports.getAllProducts = async () => {
-  return await Product.find();
+const publicCatalog = {
+  $or: [{ status: "active" }, { status: { $exists: false } }],
 };
 
-exports.getProductById = async (id) => {
-  return await Product.findById(id);
-};
+exports.getAllProducts = async () => Product.find(publicCatalog);
+
+exports.getAdminProducts = async () => Product.find().sort({ product: 1 });
+
+exports.getProductById = async (id) => Product.findOne({ _id: id, ...publicCatalog });
+
+exports.getActiveProductsByIds = async (ids) => Product.find({
+  _id: { $in: ids },
+  ...publicCatalog,
+}).select("_id");
 
 exports.createProduct = async (productData) => {
   const product = new Product(productData);

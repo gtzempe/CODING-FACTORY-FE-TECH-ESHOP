@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const request = require("supertest");
 const authService = require("../services/auth.service");
 const app = require("../app");
+const Product = require("../models/product.model");
 
 require("dotenv").config();
 
@@ -16,6 +17,11 @@ afterAll(async () => {
 describe("Requests for /api/orders", () => {
   let token;
   let createdOrderId;
+  let product;
+
+  afterAll(async () => {
+    if (product) await Product.deleteOne({ _id: product._id });
+  });
 
   beforeAll(() => {
     const user = {
@@ -38,6 +44,14 @@ describe("Requests for /api/orders", () => {
   }, 10000);
 
   it("POST Creates a new order", async () => {
+    product = await Product.create({
+      product: "Order Test " + new mongoose.Types.ObjectId(),
+      description: "Order test fixture",
+      category: "Test",
+      image: "http://example.com/product.jpg",
+      price: 500,
+      stock: 2,
+    });
     const res = await request(app)
       .post("/api/orders")
       .set("Authorization", `Bearer ${token}`)
@@ -46,7 +60,7 @@ describe("Requests for /api/orders", () => {
         username: "orderuser",
         items: [
           {
-            productId: new mongoose.Types.ObjectId().toString(),
+            productId: product.id,
             product: "Order Test Product",
             image: "http://example.com/product.jpg",
             quantity: 2,

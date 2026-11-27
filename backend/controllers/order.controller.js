@@ -6,7 +6,7 @@ exports.getMyOrders = async (req, res) => {
   logger.info(`GET /api/orders/me - Fetching orders for user: ${username}`);
 
   try {
-    const orders = await orderService.getOrdersByUsername(username);
+    const orders = await orderService.getOrdersByUserId(req.user._id);
     logger.info(`GET /api/orders/me - Orders fetched for ${username}`);
     res.status(200).json({ status: true, data: orders });
   } catch (err) {
@@ -33,13 +33,13 @@ exports.createOrder = async (req, res) => {
   logger.info(`POST /api/orders - Creating order for user: ${username}`);
 
   try {
-    const newOrder = await orderService.createOrder(req.body, username);
+    const newOrder = await orderService.createOrder({ ...req.body, userId: req.user._id, username, status: "pending" });
 
     if (!newOrder) {
       logger.warn(`POST /api/orders - Order creation failed`);
       return res
         .status(400)
-        .json({ status: false, data: "Order creation failed" });
+        .json({ status: false, data: "Check that all products in your cart are still available" });
     }
 
     logger.info(`POST /api/orders - Order created for user: ${username}`);
@@ -85,8 +85,13 @@ exports.getOrderById = async (req, res) => {
 
 exports.updateOrder = async (req, res) => {
   const orderId = req.params.id;
+  const status = req.body?.status;
+  if (!/^[a-f0-9]{24}$/i.test(orderId) || !["pending", "completed", "cancelled"].includes(status)) {
+    return res.status(400).json({ status: false, data: "Invalid order ID or status" });
+  }
+
   try {
-    const updatedOrder = await orderService.updateOrder(orderId, req.body);
+    const updatedOrder = await orderService.updateOrder(orderId, { status });
     if (!updatedOrder) {
       return res.status(404).json({ status: false, data: "Order not found" });
     }

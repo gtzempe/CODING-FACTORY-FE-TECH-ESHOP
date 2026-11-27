@@ -6,6 +6,7 @@ const verifyToken = require("../middlewares/auth.middleware").verifyToken;
 const verifyRoles = require("../middlewares/auth.middleware").verifyRoles;
 
 router.get("/", productController.getAllProducts);
+router.get("/admin", verifyToken, verifyRoles("ADMIN"), productController.getAdminProducts);
 router.get("/:id", productController.getProductById);
 router.post(
   "/",
