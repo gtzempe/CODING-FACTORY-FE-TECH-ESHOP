@@ -4,7 +4,7 @@ Tech-eShop is a full-stack e-commerce application built as a final project for t
 
 **Author:** Γιώργος Τζεμπελίκος
 
-[Live storefront](https://coding-factory-fe-tech-eshop.vercel.app/) · [Swagger API documentation](https://coding-factory-fe-tech-eshop.onrender.com/api-docs/)
+[Live](https://coding-factory-fe-tech-eshop.vercel.app/) · [Swagger API documentation](https://coding-factory-fe-tech-eshop.onrender.com/api-docs/)
 
 ## Customer storefront
 
@@ -145,7 +145,7 @@ npm run build
 
 ## Screenshots
 
-### Storefront home
+### Home main page
 
 ![Storefront home with product categories and featured products](docs/main%20page.png)
 
