@@ -1,274 +1,170 @@
-# CODING-FACTORY-FE-TECH-ESHOP
-
-Author: Γιώργος Τζεμπελίκος
-
-Project για το Coding Factory – Athens University of Economics & Business
-
-
 # Tech-eShop
 
-Full-stack e-commerce application developed for Coding Factory. A complete online shopping platform with user authentication, product management, and order processing.
+Tech-eShop is a full-stack e-commerce application built as a final project for the Coding Factory program at the Athens University of Economics and Business. It includes a customer storefront, a store administration dashboard, and a REST API.
 
-## 📋 Project Overview
+**Author:** Γιώργος Τζεμπελίκος
 
-Tech-eShop is a modern e-commerce solution that allows users to register, browse products, manage shopping carts, and complete orders. The application features role-based access control and a comprehensive admin panel.
+[Live storefront](https://coding-factory-fe-tech-eshop.vercel.app/) · [Swagger API documentation](https://coding-factory-fe-tech-eshop.onrender.com/api-docs/)
 
-## Live Demo: ⚙️ [FE-TECH-ESHOP](https://coding-factory-fe-tech-eshop.vercel.app/) 
-## Live Api-docs: 🧬 [API-DOCS](https://coding-factory-fe-tech-eshop.onrender.com/api-docs/)
+## Customer storefront
 
----
+- Browse products, search by name, filter by category, and view product details.
+- Create an account, sign in, and update your profile.
+- Add products to the cart, review the order summary, and place an order.
+- Open **My Orders** (`/orders`) to see your order history, items, totals, and current status.
 
-## Quick Start
+## Store administration
+
+Sign in with an account that has the `ADMIN` role and select **Διαχείριση καταστήματος** from the account menu, or open `/admin`.
+
+| Area | Available actions |
+| --- | --- |
+| Catalog | Create and edit products. Search by name and filter by category, status, or availability. |
+| Product lifecycle | Save products as drafts, publish them, archive them, or restore them as drafts. Permanently delete archived products after confirmation. |
+| Inventory | Update stock per product and see how many active products have fewer than five units. |
+| Orders | View all orders and update their status to pending, completed, or cancelled. |
+| Sales analytics | View order counts and the value of completed orders, with a monthly breakdown for the last six months. |
+
+Only active products appear in the public catalog. Existing products without a stored status are treated as active. At checkout, the API checks that the products in the cart are still active. Inventory updates are manual. Sales figures reflect recorded order totals.
+
+## Technology stack
+
+| Layer | Technologies |
+| --- | --- |
+| Frontend | React 19, TypeScript, Vite, Tailwind CSS, shadcn/ui, React Router, Context API, Zod |
+| Backend | Node.js, Express, JavaScript, JWT authentication and role-based authorization |
+| Database | MongoDB, Mongoose |
+| API documentation and tests | Swagger UI, Jest |
+| Deployment | Vercel for the frontend, Render for the backend |
+
+## Run locally
 
 ### Prerequisites
-- Node.js
-- MongoDB connection
 
+- Git, Node.js 22.12 or later, and npm
+- A MongoDB database and a connection string
 
-### Installation & Running
+### 1. Clone the repository
 
-1. **Clone the repository**
-```bash
+```sh
 git clone https://github.com/gtzempe/CODING-FACTORY-FE-TECH-ESHOP.git
 cd CODING-FACTORY-FE-TECH-ESHOP
 ```
-2. Setup Backend
-```bash
+
+### 2. Start the backend
+
+Create `backend/.env` and set your own values:
+
+```dotenv
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_signing_secret
+```
+
+From the repository root, run:
+
+```sh
 cd backend
-npm install
-npm run dev
+npm ci
+node --env-file=.env --watch server.js
 ```
 
-3. Setup Frontend (in a new terminal)
-```bash
-cd frontend
-npm install
-npm run dev
-```
+The API listens on `http://localhost:3000` by default. Keep this terminal open.
 
-## Environment Setup
+### 3. Start the frontend
 
-Backend:
+Create `frontend/.env`:
 
-Create backend/.env file:
-```env
-MONGODB_URI=your_mongodb_connection_string_here
-JWT_SECRET=your_jwt_secret_key_here
-```
-Frontend:
-
-Create frontend/.env file:
-```env
+```dotenv
 VITE_API_URL=http://localhost:3000/api
 ```
 
-## Access Points:
+In a second terminal, from the repository root, run:
 
-Frontend Application: http://localhost:5173
-
-Backend API: http://localhost:3000
-
-API Documentation: http://localhost:3000/api-docs
-
-
-## Demo Accounts
-```
-	Role	Username	Password	Access
-	
-1.	Admin:	admin	    123!@#	    Full system access
-2.	User:	irina_c	    123!@#	    Customer features
-3.	User:	zach_dev	123!@#	    Customer features
+```sh
+cd frontend
+npm ci
+npm run dev
 ```
 
+On Windows, use `npm.cmd` if PowerShell blocks `npm.ps1`.
 
-## What to Test
+| Page | Local URL |
+| --- | --- |
+| Storefront | <http://localhost:5173> |
+| Store administration | <http://localhost:5173/admin> |
+| My Orders | <http://localhost:5173/orders> |
+| Swagger UI | <http://localhost:3000/api-docs> |
 
+To test administration locally, use an account with the `ADMIN` role in your development database. Sign in again after changing an account's role so the application receives a fresh token.
 
-### As Customer 
+## API examples
 
-* User login & authentication
+Protected endpoints expect an `Authorization: Bearer <token>` header.
 
-* Browse products & search
+| Method | Endpoint | Purpose | Access |
+| --- | --- | --- | --- |
+| `POST` | `/api/auth/register` | Register an account | Public |
+| `POST` | `/api/auth/login` | Sign in and receive a JWT | Public |
+| `GET` | `/api/products` | List active products | Public |
+| `GET` | `/api/products/:id` | View an active product | Public |
+| `GET` | `/api/products/admin` | List products in all statuses | Admin |
+| `POST` | `/api/products` | Create a product | Admin |
+| `PUT` | `/api/products/:id` | Update product details, stock, or status | Admin |
+| `DELETE` | `/api/products/:id` | Permanently delete a product | Admin |
+| `GET` | `/api/users/me` | Get the signed-in user's profile | Signed in |
+| `POST` | `/api/orders` | Place an order | Signed in |
+| `GET` | `/api/orders/me` | List the signed-in user's orders | Signed in |
+| `GET` | `/api/orders` | List all orders | Admin |
+| `PUT` | `/api/orders/:id` | Update an order's status | Admin |
 
-* Add/remove items from cart
+## Project structure
 
-* Complete checkout process
+- `frontend/src/pages/` — storefront, checkout, customer order history, and admin dashboard
+- `frontend/src/components/` — shared UI and catalog management components
+- `frontend/src/api/` — API client functions
+- `backend/routes/` and `backend/controllers/` — API routes and HTTP handlers
+- `backend/services/`, `backend/dao/`, and `backend/models/` — application logic, database access, and schemas
+- `backend/middlewares/` — authentication and authorization
+- `backend/tests/` — Jest tests
 
-* View order history
+## Tests and production build
 
-### As Admin 
+Run the catalog and order management tests from `backend/`. These tests can run without a live MongoDB connection.
 
-- Admin dashboard access
-
-+ User management
-
-+ Product CRUD operations
-
-+ Order management system
-
-+ Inventory control
-
-
-## Technology Stack
-
-### Frontend:
-
-* React 18 with TypeScript
-
-* Vite - Build tool
-
-* TailwindCSS - Styling
-
-* ShadCN/UI - Components
-
-* Context API - State management
-
-* React Router - Navigation
-
-### Backend:
-
-* Node.js with Express & TypeScript
-
-* MongoDB with Mongoose
-
-* JWT Authentication
-
-* Swagger - API documentation
-
-* Jest - Testing framework
-
-
-## Project Structure
-
-```
-CF7 FINAL EXAM ESHOP/
-backend/
-├── controllers/       # Business logic handlers
-├── dao/              # Data Access Objects
-├── dto/              # Data Transfer Objects
-├── files/            # Postman collection & seed data
-├── middlewares/      # Authentication & validation
-├── models/           # MongoDB schemas
-├── routes/           # API endpoints
-├── services/         # Business logic services
-├── tests/            # Jest test suites
-├── utils/            # Utilities & configurations
-├── app.js            # Express app setup
-└── server.js         # Application entry point
-│
-frontend/
-├── src/
-│   ├── api/           # API service functions
-│   ├── components/    # Reusable UI components
-│   ├── context/       # AuthContext & CartContext
-│   ├── hooks/         # Custom React hooks
-│   ├── lib/           # Utilities & configurations
-│   ├── pages/         # Route components
-│   ├── providers/     # App providers
-│   ├── routes/        # Routing configuration
-│   └── utils/         # Helper functions
-├── package.json
-└── vite.config.ts
-│── README.md               # Main project documentation
+```sh
+npm test -- --runInBand --coverage=false tests/catalog-management.test.js tests/order-management.test.js
 ```
 
+For the full backend suite, set `MONGODB_URI` to a dedicated **test database** and provide `JWT_SECRET`. The integration tests create, update, and delete records. Then run `npm test -- --runInBand` from `backend/`.
 
-## Core Features
+Create a production build from `frontend/`:
 
-### <ins>  Authentication System</ins>
-* User registration and login
-
-* JWT-based authentication
-
-* Role-based access control (ADMIN, EDITOR, READER)
-
-### <ins> Shopping Experience</ins>
-* Product catalog with search and filtering
-
-* Shopping cart management with Context API
-
-* Secure checkout process
-
-* Order history and tracking
-
-### <ins> Admin Dashboard</ins>
-* User management and role assignment
-
-* Product inventory control
-
-* Order processing system
-
-* Sales analytics
-
-### <ins> API Documentation</ins>
-
-Comprehensive API documentation available via Swagger UI: 
-http://localhost:3000/api-docs
-
-### Main API Endpoints
-
-Method	Endpoint	        Description	         Access
-POST	/api/auth/login	    User authentication	 Public
-POST	/api/auth/register	User registration	 Public
-GET	    /api/products	    Get products list	 Public
-POST	/api/products	    Create new product	 Admin
-GET	    /api/orders	        Get user orders	     Authenticated
-POST	/api/orders	        Create new order	 Authenticated
-
-
-### <ins> Testing</ins>
-```bash
-cd backend
-npm test
-```
-### <ins>API Testing with Postman</ins>
-```
-backend/files/CF7_Tech-eShop_Postman_Collection.json
+```sh
+npm run build
 ```
 
-## Screenhots
+## Screenshots
 
-### Home Page
-![Home Page](./backend/files/screenshots/Homepage.png)
+### Storefront home
 
-### Products Page  
-![Smartphones](./backend/files/screenshots/Smartphones-filter.png)
+![Storefront home with product categories and featured products](docs/main%20page.png)
 
-### Cart Page
-![Cart](./backend/files/screenshots/Cart.png)
+### Product catalog
 
-### Login Page
-![Login Page](./backend/files/screenshots/Login-Page.png)
+![Storefront product catalog with search and product cards](docs/products%20page.png)
 
-### Register Page
-![Register](./backend/files/screenshots/Register-page.png)
+### Admin dashboard
 
-### Signed in menu
-![Signed in menu](./backend/files/screenshots/signed-in.png)
+![Admin dashboard with order metrics and a monthly sales chart](docs/store%20management.png)
 
-### Update informations before order
-![Update customer informations before order](./backend/files/screenshots/Update-before-complete-order.png)
+### Catalog and inventory management
 
-### Order Summary
-![Order Summary](./backend/files/screenshots/Order-summary-before-completion.png)
+![Admin product list with filters, stock controls, and product actions](docs/store%20management2.png)
 
-### Thanks Page
-![Thanks Page](./backend/files/screenshots/thanks-page.png)
+### Add a product
 
+![Admin form for creating a product](docs/Add%20new%20product.png)
 
+### Order management
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Admin order list with controls for updating order status](docs/store%20management-orders.png)
